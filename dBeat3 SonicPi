@@ -1,0 +1,24 @@
+live_loop :cleto_augusto do
+  sample :drum_bass_soft
+  sample :guit_e_fifths
+  sleep 0.5
+  sample :drum_bass_soft
+  sample :guit_e_fifths
+  sleep 0.5
+  sample :drum_cymbal_open
+  sample :guit_em9
+  sleep 0.5
+  sample :drum_cymbal_open
+  sleep 0.5
+  sample :drum_bass_soft
+  sample :guit_e_fifths
+  sleep 0.5
+  sample :drum_bass_soft
+  sample :guit_e_fifths
+  sleep 0.5
+  sample :drum_cymbal_open
+  sample :guit_em9
+  sleep 0.5
+  sample :drum_cymbal_open
+  sleep 0.5
+end
