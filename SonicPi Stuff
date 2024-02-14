@@ -1,0 +1,14 @@
+live_loop :beat do
+  sample :bd_ada, amp: 0.5
+  sleep 1
+end
+
+live_loop :beat2 do
+  sample :loop_amen, beat_stretch: 2
+  sleep 1
+end
+
+live_loop :drums do
+  sample :drum_bass_hard, amp: 1
+  sleep 2
+end
