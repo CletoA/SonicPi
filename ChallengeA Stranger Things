@@ -1,0 +1,61 @@
+#challenge A: Stranger Things
+
+use_bpm 160
+use_synth :dsaw
+
+live_loop :st do
+  play :c2, amp: 0.5
+  sleep 0.5
+  play :e2, amp: 1
+  sleep 0.5
+  play :g2, amp: 1
+  sleep 0.5
+  play :b2, amp: 0.5
+  sleep 0.5
+  
+  
+  
+  play :c3, amp: 0.5
+  sleep 0.5
+  play :b2, amp: 1
+  sleep 0.5
+  play :g2, amp: 1
+  sleep 0.5
+  play :e2, amp: 0.5
+  sleep 0.5
+end
+
+
+sleep 8
+
+
+live_loop :drum do
+  sample :drum_cymbal_closed, amp: 0.4
+  sleep 0.5
+  sample :drum_cymbal_closed, amp: 0.4
+  sleep 0.5
+  sample :drum_cymbal_closed, amp: 0.4
+  sleep 0.5
+end
+
+sleep 12
+
+
+live_loop :drum2 do
+  sample :drum_bass_hard, amp: 1
+  sleep 0.5
+  sample :drum_bass_hard, amp: 1
+  sleep 3.5
+end
+
+
+sleep 16
+
+
+live_loop :idk do
+  sample :guit_e_slide, amp: 0.2
+  sleep 1
+  sample :guit_e_slide, amp: 0.2
+  sleep 3
+end
+ m
