@@ -1,0 +1,72 @@
+# Challenge E
+use_bpm 180
+use_synth :chipbass
+
+# VARIABLES TO STORE SAMPLES
+coin = "C:/Users/cleto_augusto/Downloads/mario_sounds/mario_sounds"
+mushroom = "C:/Users/cleto_augusto/Downloads/mario_sounds/mario_sounds/mushroom.wav"
+jump = "C:/Users/cleto_augusto/Downloads/mario_sounds/mario_sounds/jump.wav"
+pipe = "C:/Users/cleto_augusto/Downloads/mario_sounds/mario_sounds/pipe.wav"
+oneup = "C:/Users/cleto_augusto/Downloads/mario_sounds/mario_sounds/oneup.wav"
+
+sample coin
+sleep 4
+
+sample mushroom
+sleep 4
+
+live_loop :melody1 do
+  4.times do
+    play :c4
+    sleep 1.5
+    play :g3
+    sleep 1.5
+    play :e3
+    sleep 1.5
+    play :a3
+    sleep 1
+    play :b3
+    sleep 1
+    play :bb3
+    sleep 0.5
+    play :a3
+    sleep 1
+  end
+  stop
+end
+
+sleep 2
+
+live_loop :pipe do
+  4.times do
+    sample pipe
+    sleep 3
+    sample jump
+    sleep 4
+  end
+  stop
+end
+
+sleep 30
+play :g3
+sleep 2/3.0 #0.666666...
+play :e4
+sleep 2/3.0 #0.666666...
+play :g4
+sleep 2/3.0 #0.666666...
+play :a4
+sleep 1
+play :f4
+sleep 0.5
+play :g4
+sleep 1
+play :e4
+sleep 1
+play :c4
+sleep 0.5
+play :d4
+sleep 0.5
+play :b3
+sleep 4
+
+sample oneup
