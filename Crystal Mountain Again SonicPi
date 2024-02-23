@@ -1,0 +1,72 @@
+# Welcome to Sonic Pi
+
+# Crystal Mountain by Death
+# First 15 notes
+GOAT = "C:/Users/cleto_augusto/Downloads/GOAT.mp3"
+use_synth :blade # Choose a distortion synth for a metal sound
+use_bpm 176 # Set the tempo to 176 beats per minute
+x = 0.25
+y = 0.75
+z = 1
+v = 2
+g = 4
+l = 0.5
+
+sample GOAT
+sleep 30
+
+live_loop :symbolicGuitar do
+  3.times do
+    play :e2, pan: -1
+    sleep y
+    play :e2, pan: -1
+    sleep x
+    play :e2, pan: -1
+    sleep x
+    play :e2, pan: -1
+    sleep y
+    play :d4
+    play :b3
+    sleep v
+  end
+  1.times do
+    play :f4, pan: -1
+    play :b3, pan: -1
+    sleep z
+    play :f4, pan: -1
+    play :b3, pan: -1
+    sleep z
+    play :c4, pan: 1
+    play :a3, pan: 1
+    sleep z
+    play :e4, pan: 1
+    play :b3, pan: 1
+    sleep z
+  end
+  
+end
+
+sleep 8
+
+live_loop :drums do
+  sample :drum_cymbal_hard, amp: 0.4
+  sleep g
+end
+
+sleep 12
+
+
+live_loop :drums2 do
+  sample :drum_bass_hard, amp: 1.5
+  sleep l
+  sample :drum_bass_hard, amp: 1.5
+  sleep l
+end
+
+sleep 16
+
+
+live_loop :drums3 do
+  sample :drum_snare_hard, amp: 0.7
+  sleep g
+end
