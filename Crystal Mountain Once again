@@ -1,0 +1,104 @@
+#Youtube Link for sample: https://www.youtube.com/watch?v=lPk_zyRKs1Q
+#Sheet Music: https://musescore.com/user/45225185/scores/8237696
+
+GOAT = "C:/Users/cleto_augusto/Downloads/GOAT.mp3"
+use_synth :saw# Choose a distortion synth for a metal sound
+use_bpm 176 # Set the tempo to 176 beats per minute
+x = 0.5
+y = 0.5
+z = 1
+v = 2
+g = 4
+l = 0.5
+
+
+define :first do
+  play :e2, pan: -1
+  sleep y
+  play :e2, pan: -1
+  sleep x
+  play :e2, pan: -1
+  sleep x
+  play :e2, pan: -1
+  sleep y
+  play :d4, sustain: 0.25
+  play :b3, sustain: 0.25
+end
+
+sample GOAT, start: 0, finish: 0.25, amp: 1
+sleep 5
+sample GOAT, start: 0.25, finish: 0.5, amp: 0.75
+sleep 6
+sample GOAT, start: 0.5, finish: 0.75, amp: 0.5
+sleep 6
+sample GOAT, start: 0.75, finish: 1, amp: 0.25
+sleep 5
+
+with_fx :distortion do
+  live_loop :symbolicGuitar do
+    9.times do
+      first
+      sleep v
+      first
+      sleep v
+      first
+      sleep v
+      play :f4, pan: -1
+      play :b3, pan: -1
+      sleep z
+      play :f4, pan: -1
+      play :b3, pan: -1
+      sleep z
+      play :c4, pan: 1
+      play :a3, pan: 1
+      sleep z
+      play :e4, pan: 1
+      play :b3, pan: 1
+      sleep z
+    end
+    stop
+  end
+  
+end
+
+sleep 8
+
+live_loop :drums do
+  34.times do
+    sample :drum_cymbal_hard, amp: 0.4
+    sleep g
+  end
+  stop
+end
+
+
+sleep 12
+
+
+live_loop :drums2 do
+  124.times do
+    sample :drum_bass_hard, amp: 1.5
+    sleep l
+    sample :drum_bass_hard, amp: 1.5
+    sleep l
+  end
+  stop
+end
+
+
+sleep 16
+
+
+live_loop :drums3 do
+  27.times do
+    sample :drum_snare_hard, amp: 0.7
+    sleep g
+  end
+  stop
+end
+
+
+
+
+
+
