@@ -1,0 +1,29 @@
+# Stranger Things Main Theme
+use_bpm 160
+use_synth :saw
+t = 0.5 #time
+define :mainnotes do |x,x2,x3,x4,x5,x6,x7,x8|
+  play x
+  sleep t
+  play x2
+  sleep t
+  play x3
+  sleep t
+  play x4
+  sleep t
+  play x5
+  sleep t
+  play x6
+  sleep t
+  play x7
+  sleep t
+  play x8
+  sleep t
+end
+live_loop :ST do
+  mainnotes :c2, :e2, :g2, :b2, :c3, :b2, :g2, :e2
+  mainnotes :c3, :e3, :g3, :b3, :c4, :b3, :g3, :e3
+  mainnotes :c4, :e4, :g4, :b4, :c5, :b4, :g4, :e4
+  mainnotes :c5, :e5, :g5, :b5, :c6, :b5, :g5, :e5
+  mainnotes :c6, :e6, :g6, :b6, :c7, :b6, :g6, :e6
+end
