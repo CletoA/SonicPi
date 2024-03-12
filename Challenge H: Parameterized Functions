@@ -1,0 +1,43 @@
+Functions are great for when the pattern of notes (sleeps) and the actual notes are exactly the same.
+
+Parameterized functions are great for when:
+a. the pattern of notes is the same but the actual notes are different!
+b. two chunks of code are almost identical but have a few slight differences!
+
+YOUR TASK: Use a parameterized function to optimize the code below.
+
+=end
+use_bpm 120
+use_synth :chiplead
+t = 0.5
+define :function1 do |x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12|
+  play x1
+  play x2
+  sleep t
+  play x3
+  play x4
+  sleep t
+  play x5
+  play x6
+  sleep t
+  play x7
+  play x8
+  sleep t
+  play x9
+  play x10
+  sleep t
+  play x11
+  play x12
+  sleep t
+end
+live_loop :MKNOTES do
+  # MEASURE 1 ---------------------------
+  function1 :a4, :a5, :a4, :a5, :d5, :d6, :a4, :a5, :e5, :e6, :d5, :d6
+  # MEASURE 2 ---------------------------
+  function1 :c5, :c6, :c5, :c6, :e5, :e6, :c5, :c6, :g5, :g6, :c4, :c5
+  # MEASURE 3 ---------------------------
+  function1 :g4, :g5, :e5, :e6, :c4, :c5, :g4, :g5, :b4, :b5, :g4, :g5
+  function1 :c5, :c6, :g4, :g5, :d5, :d6, :c5, :c6, :f4, :f5, :f4, :f5
+  # MEASURE 4 ---------------------------
+  function1 :a4, :a5, :f4, :f5, :c5, :c6, :f4, :f5, :c5, :c6, :b4, :b5
+end
