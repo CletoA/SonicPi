@@ -1,0 +1,99 @@
+t = 0.25
+i = 0
+use_bpm 87
+use_synth :piano
+eminem = "C:/Users/cleto_augusto/Documents/Audacity/Eminem_Sample.mp3"
+RAIN = "C:/Users/cleto_augusto/Documents/Audacity/Rain (Outro Sample).mp3"
+i = 0
+index = [:a2, :b2, :b2, :d3, :c3, :a2, :c3, :a2, :g2, :e2, :a2]
+times = [2, 2, 1, 0.5, 0.5, 2, 2, 1.5, 1, 1, 2]
+
+define :piano do |x1, x2, x3|
+  play x1
+  sleep t
+  play x2
+  sleep t
+  play x3
+  sleep 0.5
+end
+
+sample eminem, start: 0, finish: 0.25, amp: 1
+sleep 10
+sample eminem, start: 0.25, finish: 0.5, amp: 0.5
+sleep 10
+sample eminem, start: 0.5, finish: 0.75, amp: 0.25
+sleep 10
+
+
+live_loop :piano do
+  39.times do
+    # measure 1
+    piano :a4, :c5, :e5
+    # measure 2
+    piano :a4, :c5, :f5
+    # measure 3
+    piano :a4, :c5, :f5
+    # measure 4
+    piano :a4, :c5, :d5
+    # measure 5
+    piano :a4, :c5, :d5
+    # measure 6
+    piano :a4, :c5, :e5
+    # measure 7
+    piano :a4, :c5, :e5
+    # measure 8
+    piano :e4, :a4, :c5
+    # measure 9
+    piano :e4, :a4, :c5
+    # measure 10
+    piano :e4, :a4, :d5
+    # measure 11
+    piano :g4, :b4, :d5
+    # measure 12
+    piano :d4, :g4, :b4
+    # measure 13
+    piano :d4, :g4, :b4
+    # measure 14
+    piano :d4, :g4, :a4
+    # measure 15
+    piano :c4, :e4, :a4
+    # measure 16
+    piano :a4, :c5, :e5
+  end
+end
+# loop again
+sleep 15
+
+live_loop :bass do
+  143.times do
+    use_synth :bass_foundation
+    play index[i], amp: 0.5
+    sleep times[i]
+    i=i+1
+  end
+  i = 0
+end
+sleep 25
+live_loop :drum do
+  13.times do #52 cymbal hits
+    sample :drum_cymbal_hard, amp: 0.2
+    sleep 0.5
+    sample :drum_cymbal_hard, amp: 0.2
+    sleep 0.5
+    sample :drum_cymbal_hard, amp: 0.2
+    sleep 0.5
+    sample :drum_cymbal_hard, amp: 0.2
+    sleep 14
+  end
+end
+
+live_loop :drumkick do
+  13.times do # Hits all first cymbals 13 times
+    sample :drum_bass_hard, amp: 0.3
+    sleep 15.5
+  end
+end
+
+sleep 100
+
+sample RAIN, amp: 0.5
