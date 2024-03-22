@@ -9,11 +9,11 @@ index = [:a2, :b2, :b2, :d3, :c3, :a2, :c3, :a2, :g2, :e2, :a2]
 times = [2, 2, 1, 0.5, 0.5, 2, 2, 1.5, 1, 1, 2]
 
 define :piano do |x1, x2, x3|
-  play x1
+  play x1, amp: 0.5
   sleep t
-  play x2
+  play x2, amp: 0.5
   sleep t
-  play x3
+  play x3, amp: 0.5
   sleep 0.5
 end
 
@@ -26,7 +26,7 @@ sleep 10
 
 
 live_loop :piano do
-  39.times do
+  10.times do
     # measure 1
     piano :a4, :c5, :e5
     # measure 2
@@ -65,17 +65,24 @@ end
 sleep 15
 
 live_loop :bass do
-  143.times do
-    use_synth :bass_foundation
-    play index[i], amp: 0.5
-    sleep times[i]
-    i=i+1
+  4.times do
+    11.times do
+      use_bpm 87
+      print(i)
+      use_synth :bass_foundation
+      play index[i], amp: 0.2
+      sleep times[i]
+      i=i+1
+    end
+    i = 0
   end
-  i = 0
+  stop
 end
-sleep 25
+
+sleep 33
+
 live_loop :drum do
-  13.times do #52 cymbal hits
+  3.times do #52 cymbal hits
     sample :drum_cymbal_hard, amp: 0.2
     sleep 0.5
     sample :drum_cymbal_hard, amp: 0.2
@@ -85,14 +92,17 @@ live_loop :drum do
     sample :drum_cymbal_hard, amp: 0.2
     sleep 14
   end
+  stop
 end
 
 live_loop :drumkick do
-  13.times do # Hits all first cymbals 13 times
+  3.times do # Hits all first cymbals 13 times
     sample :drum_bass_hard, amp: 0.3
     sleep 15.5
   end
+  stop
 end
+
 
 sleep 100
 
