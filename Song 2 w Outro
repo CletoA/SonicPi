@@ -1,6 +1,5 @@
-#Sample used: https://www.youtube.com/watch?v=Eu0GicOi4Sk
-#Sheet Music: https://musescore.com/user/128140/scores/230351
-#Original Song: https://www.youtube.com/watch?v=idfNwe-Ism0
+#Sample used:
+#Sheet Music:
 t = 0.25
 i = 0
 use_bpm 87
@@ -24,7 +23,7 @@ sample eminem, start: 0, finish: 0.25, amp: 1
 sleep 10
 sample eminem, start: 0.25, finish: 0.5, amp: 0.5
 sleep 10
-sample eminem, start: 0.5, finish: 0.75, amp: 0.25
+sample eminem, start: 0.55, finish: 0.75, amp: 0.25
 sleep 10
 
 
@@ -74,10 +73,11 @@ live_loop :bass do
       use_bpm 87
       print(i)
       use_synth :bass_foundation
-      play index[i], amp: 0.4
+      play index[i], amp: 0.5
       sleep times[i]
       i=i+1
     end
+    sample :loop_amen, amp: 0.4
     i = 0
   end
   stop
@@ -134,7 +134,7 @@ define :piano2 do |x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12|
   play x11, amp: a
   sleep t
   play x12, amp: a #a = amp
-  a=a-0.25
+  [a=a-0.25]
   sleep 0.5
 end
 
